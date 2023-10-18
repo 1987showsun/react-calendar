@@ -1,0 +1,130 @@
+.date-range{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.date-wrap{
+    width: 160px;
+    position: relative;
+    *{
+        border: none;
+        appearance: none;
+        outline: none;
+        background: transparent;
+        user-select: none;
+        box-sizing: border-box;
+    }
+    .date-result-wrap{
+        width: 100%;
+        height: 40px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: flex;
+        gap: 5px;
+        pointer-events: none;
+        user-select: none;
+        cursor: pointer;
+        span, i{
+            display: inline-flex;
+        }
+        span{
+            align-items: center;
+            &.date-value{
+                flex-grow: 1;
+            }
+        }
+        i{
+            width: 25px;
+            height: 25px;
+            flex-shrink: 0;
+            align-self: center;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .calendar-days-item{
+        width: calc(100%/7);
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+    }
+
+    .calendar-days-wrap{
+        width: 300px;
+        position: absolute;
+        z-index: 2;
+        margin-top: 5px;
+        border: 1px solid #e1e1e1;
+        background: #fff;
+        display: none;
+        &[data-display="true"]{
+            display: block;
+        }
+        .calendar-head{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            button{
+                width: 30px;
+                height: 40px;
+                cursor: pointer;
+            }
+            .calendar-current-date{
+                align-self: center;
+            }
+        }
+
+        .calendar-week-wrap{
+            width: 100%;
+            display: flex;
+            >.calendar-days-item{
+                font-size: .8rem;
+                flex-grow: 1;
+            }
+        }
+
+        .calendar-days-container{
+            .calendar-days-item{
+                cursor: pointer;
+                font-size: .8rem;
+                span{
+                    position: relative;
+                    z-index: 2;
+                }
+                &[data-today="true"]{
+                    font-weight: bold;
+                    &::after{
+                        content: "";
+                        width: 32px;
+                        height: 32px;
+                        display: block;
+                        border-radius: 100px;
+                        position: absolute;
+                        z-index: 1;
+                        background: rgb(144, 202, 249);
+                        opacity: .2;
+                    }
+                }
+                &[data-selected="true"]{
+                    background: rgb(144, 202, 249);
+                    color: #fff;
+                }
+                &[data-active="true"]{
+                    background: rgb(144, 202, 249);
+                    color: #fff;
+                }
+                &[data-disabled="true"]{
+                    cursor: not-allowed;
+                    opacity: .3;
+                }
+            }
+        }
+    }
+
+}
