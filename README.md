@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# React Calendar 自製日曆元件
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -11,14 +11,6 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -29,41 +21,34 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `Use component`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+ import { Datenomal, Daterange } from './components/date';
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ <Datenomal />
+ <Daterange />
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### `API`
+> 共用
+| Prop name     | Description      | Default | Example values                                           |
+| ------------- | ---------------- | ------- | -------------------------------------------------------- |
+| limitMinDate  | 限制最小可選擇日期  | null    | limitMinDate = "2023/1/1" or limitMinDate = "2023/01/01" |
+| handleChange  | 返回結果          | null    | handleChange = {(val) => {...}} Datenomal return val and Daterange return object { startDate: '2023/01/01', endDate: '2023/01/02' } |
+| local         | 語言              | en      | 目前有 en 和 zh 兩種 local = "en" / "zh"                   |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> Datenomal
+| Prop name     | Description      | Default | Example values                                           |
+| ------------- | ---------------- | ------- | -------------------------------------------------------- |
+| defaultValue  | 預設值            | null    | 沒給值就預設今日日期；defaultValue = "2023/1/1" or "2023/01/01" |
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+> Daterange
+| Prop name     | Description      | Default       | Example values                                           |
+| ------------- | ---------------- | ------------- | -------------------------------------------------------- |
+| startDate     | 開始日期          | today date    | 設定想要的開始時間，startDate = "2023/01/01" or "2023/1/1"   |
+| endDate       | 結束日期          | today date    | 設定想要的結束時間，startDate = "2023/01/01" or "2023/1/1"   |
+| 
 
 ### `npm run build` fails to minify
 
