@@ -37,6 +37,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 | Prop name     | Description      | Default | Example values                                           |
 | ------------- | ---------------- | ------- | -------------------------------------------------------- |
 | limitMinDate  | 限制最小可選擇日期  | null    | limitMinDate = "2023/1/1" or limitMinDate = "2023/01/01" |
+| limitMaxDate  | 限制最大可選擇日期  | null    | limitMaxDate = "2023/1/1" or limitMinDate = "2023/01/01" |
 | handleChange  | 返回結果          | null    | handleChange = {(val) => {...}} Datenomal return val and Daterange return object { startDate: '2023/01/01', endDate: '2023/01/02' } |
 | local         | 語言              | en      | 目前有 en 和 zh 兩種 local = "en" / "zh"                   |
 

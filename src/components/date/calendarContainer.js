@@ -5,6 +5,7 @@ import toArray from "dayjs/plugin/toArray";
 
 export default ({
     limitMinDate         = null,
+    limitMaxDate         = null,
     startCurrentDate     = "",
     currentCalendarYear  = "",
     currentCalendarMonth = "",
@@ -67,10 +68,11 @@ export default ({
         const itemDateToMs  = dayjs(itemDate).valueOf(); 
         const startDateToMs = dayjs(compareValue).valueOf();
 
-        if( limitMinDate ){
-            const limitMinDateToMs = dayjs(limitMinDate).valueOf();
-            return itemDateToMs<limitMinDateToMs? true:false;
-            console.log(limitMinDateToMs);
+        if( limitMinDate || limitMaxDate ){
+            const limitDateToMs = (date) => dayjs(date).valueOf();
+            if( itemDateToMs<limitDateToMs(limitMinDate) && itemDateToMs>limitDateToMs(limitMaxDate) || (itemDateToMs<limitDateToMs(limitMinDate) || itemDateToMs>limitDateToMs(limitMaxDate)) ){
+                return true;
+            }
         }
 
         if( compareType==="start" ){
@@ -83,7 +85,7 @@ export default ({
             }
         }
         return false;
-    }, [limitMinDate, compareType, compareValue, startCurrentDate]);
+    }, [limitMinDate, limitMaxDate, compareType, compareValue, startCurrentDate]);
 
     return(
         <div className='calendar-days-container'>

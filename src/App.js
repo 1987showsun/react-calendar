@@ -8,8 +8,9 @@ function App() {
     <div className="App">
       <div className='row'>
         <Datenomal 
-          limitMinDate = "2023/10/5"
           local        = "zh"
+          limitMinDate = "2023/10/5"
+          limitMaxDate = "2023/10/12"
           defaultValue = "2023/10/10"
           handleChange = {console.log}
         />

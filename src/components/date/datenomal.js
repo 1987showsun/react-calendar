@@ -15,6 +15,7 @@ import './public/style.scss';
 
 export default memo(({
     limitMinDate = null, // 限制最小日期
+    limitMaxDate = null,
     defaultValue = null,
     compareValue = null,
     compareType  = null,
@@ -89,16 +90,17 @@ export default memo(({
                 />
                 <CalendarContainer
                     limitMinDate         = {limitMinDate}
+                    limitMaxDate         = {limitMaxDate}
                     startCurrentDate     = {stateStartCurrentDate}
                     currentCalendarYear  = {stateCurrentCalendarYear}
                     currentCalendarMonth = {stateCurrentCalendarMonth}
                     compareValue         = {compareValue}
                     compareType          = {compareType}
                     handleSelectedDate   = {val => {
-                        if( limitMinDate ){
-                            const dateToMs = dayjs(val).valueOf();
-                            const limitMinDateToMs = dayjs(limitMinDate).valueOf();
-                            if( limitMinDateToMs>dateToMs ){
+                        const dateToMs = dayjs(val).valueOf();
+                        const dateChangeToMs = (date) => dayjs(date).valueOf();
+                        if( limitMinDate || limitMaxDate ){
+                            if( dateChangeToMs(limitMinDate)>dateToMs || dateChangeToMs(limitMaxDate)<dateToMs ){
                                 return false;
                             }
                         }

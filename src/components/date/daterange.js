@@ -7,6 +7,7 @@ import Datenomal from "./datenomal";
 
 export default ({
     limitMinDate = null,
+    limitMaxDate = null,
     local        = "en",
     startDate    = null,
     endDate      = null,
@@ -35,6 +36,7 @@ export default ({
         <div className="date-range">
             <Datenomal 
                 limitMinDate = {limitMinDate}
+                limitMaxDate = {limitMaxDate}
                 local        = {local}
                 defaultValue = {stateStartDate}
                 compareValue = {stateEndDate}
@@ -50,6 +52,7 @@ export default ({
             <span>-</span>
             <Datenomal 
                 limitMinDate = {limitMinDate}
+                limitMaxDate = {limitMaxDate}
                 local        = {local}
                 defaultValue = {stateEndDate}
                 compareValue = {stateStartDate}
